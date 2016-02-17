@@ -1,4 +1,4 @@
-Welcome to Brackets! [![Build Status](https://travis-ci.org/adobe/brackets.svg?branch=master)](https://travis-ci.org/adobe/brackets)
+Welcome to Brackets!! [![Build Status](https://travis-ci.org/adobe/brackets.svg?branch=master)](https://travis-ci.org/adobe/brackets)
 -------------------
 
 Brackets is a modern open-source code editor for HTML, CSS
@@ -116,4 +116,3 @@ Not sure you needed the exclamation point there, but we like your enthusiasm.
 * **Twitter:** [@brackets](https://twitter.com/brackets)
 * **Blog:** http://blog.brackets.io/
 * **IRC:** [#brackets on freenode](http://webchat.freenode.net/?channels=brackets)
-
