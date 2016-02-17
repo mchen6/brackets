@@ -80,7 +80,9 @@
     function _createServer() {
         if (!_wsServer) {
             // TODO: make port configurable, or use random port
-            _wsServer = new WebSocketServer({port: SOCKET_PORT});
+            _wsServer = new WebSocketServer({
+                port: SOCKET_PORT
+            });
             _wsServer.on("connection", function (ws) {
                 ws.on("message", function (msg) {
                     console.log("WebSocketServer - received - " + msg);
@@ -181,60 +183,87 @@
     function init(domainManager) {
         _domainManager = domainManager;
         if (!domainManager.hasDomain("nodeSocketTransport")) {
-            domainManager.registerDomain("nodeSocketTransport", {major: 0, minor: 1});
+            domainManager.registerDomain("nodeSocketTransport", {
+                major: 0,
+                minor: 1
+            });
         }
         domainManager.registerCommand(
-            "nodeSocketTransport",      // domain name
-            "start",       // command name
-            _cmdStart,     // command handler function
-            false,          // this command is synchronous in Node
-            "Creates the WS server",
-            []
+            "nodeSocketTransport", // domain name
+            "start", // command name
+            _cmdStart, // command handler function
+            false, // this command is synchronous in Node
+            "Creates the WS server", []
         );
         domainManager.registerCommand(
-            "nodeSocketTransport",      // domain name
-            "send",         // command name
-            _cmdSend,       // command handler function
-            false,          // this command is synchronous in Node
-            "Sends a message to a given client or list of clients",
-            [
-                {name: "idOrArray", type: "number|Array.<number>", description: "id or array of ids to send the message to"},
-                {name: "message", type: "string", description: "JSON message to send"}
-            ],
-            []
+            "nodeSocketTransport", // domain name
+            "send", // command name
+            _cmdSend, // command handler function
+            false, // this command is synchronous in Node
+            "Sends a message to a given client or list of clients", [
+                {
+                    name: "idOrArray",
+                    type: "number|Array.<number>",
+                    description: "id or array of ids to send the message to"
+                },
+                {
+                    name: "message",
+                    type: "string",
+                    description: "JSON message to send"
+                }
+            ], []
         );
         domainManager.registerCommand(
-            "nodeSocketTransport",      // domain name
-            "close",         // command name
-            _cmdClose,       // command handler function
-            false,          // this command is synchronous in Node
-            "Closes the connection to a given client",
-            [
-                {name: "id", type: "number", description: "id of connection to close"}
-            ],
-            []
+            "nodeSocketTransport", // domain name
+            "close", // command name
+            _cmdClose, // command handler function
+            false, // this command is synchronous in Node
+            "Closes the connection to a given client", [
+                {
+                    name: "id",
+                    type: "number",
+                    description: "id of connection to close"
+                }
+            ], []
         );
         domainManager.registerEvent(
             "nodeSocketTransport",
-            "connect",
-            [
-                {name: "clientID", type: "number", description: "ID of live preview page connecting to live development"},
-                {name: "url", type: "string", description: "URL of page that live preview is connecting from"}
+            "connect", [
+                {
+                    name: "clientID",
+                    type: "number",
+                    description: "ID of live preview page connecting to live development"
+                },
+                {
+                    name: "url",
+                    type: "string",
+                    description: "URL of page that live preview is connecting from"
+                }
             ]
         );
         domainManager.registerEvent(
             "nodeSocketTransport",
-            "message",
-            [
-                {name: "clientID", type: "number", description: "ID of live preview page sending message"},
-                {name: "msg", type: "string", description: "JSON message from client page"}
+            "message", [
+                {
+                    name: "clientID",
+                    type: "number",
+                    description: "ID of live preview page sending message"
+                },
+                {
+                    name: "msg",
+                    type: "string",
+                    description: "JSON message from client page"
+                }
             ]
         );
         domainManager.registerEvent(
             "nodeSocketTransport",
-            "close",
-            [
-                {name: "clientID", type: "number", description: "ID of live preview page being closed"}
+            "close", [
+                {
+                    name: "clientID",
+                    type: "number",
+                    description: "ID of live preview page being closed"
+                }
             ]
         );
     }

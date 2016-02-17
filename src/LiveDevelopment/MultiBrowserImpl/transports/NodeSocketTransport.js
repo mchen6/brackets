@@ -32,9 +32,9 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var FileUtils       = require("file/FileUtils"),
+    var FileUtils = require("file/FileUtils"),
         EventDispatcher = require("utils/EventDispatcher"),
-        NodeDomain      = require("utils/NodeDomain");
+        NodeDomain = require("utils/NodeDomain");
 
     // The script that will be injected into the previewed HTML to handle the other side of the socket connection.
     var NodeSocketTransportRemote = require("text!LiveDevelopment/MultiBrowserImpl/transports/remote/NodeSocketTransportRemote.js");
