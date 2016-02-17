@@ -1,0 +1,62 @@
+// whoGloo nodeSpeed customizations to brackets stylesheets
+
+/* About dialog */
+.about-dialog .modal-body {
+    // Simple two-column layout: image on left, text taking up remaining space on right
+    position: relative;
+    .about-icon {
+        position: absolute;
+        left: 19px;  // relative to border of modal-body (bounds outside padding)
+        top:  15px;
+        width: 100px;
+        // height: 100px;
+    }
+    .about-text {
+        // Icon is 120px, so we need at least that much left padding/margin to avoid overlap
+        margin-left: 130px;
+        overflow: auto;
+
+        #about-build-number {
+            color: @bc-text-thin-quiet;
+
+            .dark & {
+                color: @dark-bc-text-thin-quiet;
+            }
+        }
+        .about-info {
+            max-height: 300px;
+            margin-right: 10px;
+        }
+        .about-contributors {
+            min-height: 100px;
+            padding-bottom: 13px;
+
+            a {
+                text-decoration: none;
+            }
+            img {
+                opacity: 0;
+                transition: opacity 1s;
+
+                .dark & {
+                    background-color: #f0f0f0; // same as GitHub's avatar background color.
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-weight: normal;
+        font-size: 25px;
+        margin-bottom: -4px;
+        margin-top: 13px;
+    }
+    .dialog-message {
+        font-size: 14px;
+        line-height: 17px;
+
+        // Enable text selection
+        cursor: auto;
+        .user-select(text);
+    }
+}
