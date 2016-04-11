@@ -799,14 +799,14 @@ define(function (require, exports, module) {
     menu.addMenuItem(DEBUG_RELOAD_WITHOUT_USER_EXTS, KeyboardPrefs.reloadWithoutUserExts);
     menu.addMenuItem(DEBUG_NEW_BRACKETS_WINDOW);
     menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_SWITCH_LANGUAGE);
+//    menu.addMenuItem(DEBUG_SWITCH_LANGUAGE);
     menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_RUN_UNIT_TESTS);
+//    menu.addMenuItem(DEBUG_RUN_UNIT_TESTS);
     menu.addMenuItem(DEBUG_SHOW_PERF_DATA);
-    menu.addMenuItem(DEBUG_OPEN_BRACKETS_SOURCE);
+//    menu.addMenuItem(DEBUG_OPEN_BRACKETS_SOURCE);
     menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
-    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
+//    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
+//    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
     menu.addMenuItem(DEBUG_RESTART_NODE);
     menu.addMenuItem(DEBUG_SHOW_ERRORS_IN_STATUS_BAR);
     menu.addMenuItem(DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW); // this command will enable defaultPreferences and brackets preferences to be open side by side in split view.
