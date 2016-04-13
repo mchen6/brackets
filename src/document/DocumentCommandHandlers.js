@@ -1758,8 +1758,7 @@ define(function (require, exports, module) {
     CommandManager.register(Strings.CMD_PREV_DOC_LIST_ORDER,         Commands.NAVIGATE_PREV_DOC_LIST_ORDER,   handleGoPrevDocListOrder);
 
     // Special Commands
-    // Thomas Hansen, whoGloo, 2016-02-17 - disable show in OS
-    // CommandManager.register(showInOS,                                Commands.NAVIGATE_SHOW_IN_OS,            handleShowInOS);
+    CommandManager.register(showInOS,                                Commands.NAVIGATE_SHOW_IN_OS,            handleShowInOS);
     CommandManager.register(quitString,                              Commands.FILE_QUIT,                      handleFileQuit);
     CommandManager.register(Strings.CMD_SHOW_IN_TREE,                Commands.NAVIGATE_SHOW_IN_FILE_TREE,     handleShowInTree);
 
