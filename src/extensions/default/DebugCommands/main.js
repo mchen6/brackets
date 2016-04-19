@@ -834,7 +834,7 @@ define(function (require, exports, module) {
     menu.addMenuDivider();
     //    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
     //    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
-    menu.addMenuItem(DEBUG_RESTART_NODE);
+    //    menu.addMenuItem(DEBUG_RESTART_NODE);
     menu.addMenuItem(DEBUG_SHOW_ERRORS_IN_STATUS_BAR);
     menu.addMenuItem(DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW); // this command will enable defaultPreferences and brackets preferences to be open side by side in split view.
     menu.addMenuItem(Commands.FILE_OPEN_KEYMAP); // this command is defined in core, but exposed only in Debug menu for now
