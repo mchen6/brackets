@@ -123,7 +123,9 @@ define(function (require, exports, module) {
     require("editor/EditorStatusBar");
     require("editor/ImageViewer");
     require("extensibility/InstallExtensionDialog");
+/*
     require("extensibility/ExtensionManagerDialog");
+*/
     require("help/HelpCommandHandlers");
     require("search/FindInFilesUI");
     require("search/FindReplace");
