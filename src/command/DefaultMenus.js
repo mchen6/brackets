@@ -55,8 +55,8 @@ define(function (require, exports, module) {
         //        menu.addMenuItem(Commands.FILE_LIVE_FILE_PREVIEW);
         //        menu.addMenuItem(Commands.TOGGLE_LIVE_PREVIEW_MB_MODE);
         //        menu.addMenuItem(Commands.FILE_PROJECT_SETTINGS);
-        menu.addMenuDivider();
-        menu.addMenuItem(Commands.FILE_EXTENSION_MANAGER);
+        // menu.addMenuDivider();
+        // menu.addMenuItem(Commands.FILE_EXTENSION_MANAGER);
 
         // suppress redundant quit menu item on mac
         if (brackets.platform !== "mac" || !brackets.nativeMenus) {
