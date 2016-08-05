@@ -1,6 +1,6 @@
 [submodule "src/thirdparty/CodeMirror"]
 	path = src/thirdparty/CodeMirror
-	url = https://bitbucket.org/whogloo/CodeMirror2.git
+	url = git@bitbucket.org:whogloo/codemirror2.git
 [submodule "src/thirdparty/path-utils"]
 	path = src/thirdparty/path-utils
 	url = https://github.com/jblas/path-utils.git
