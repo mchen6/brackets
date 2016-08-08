@@ -360,7 +360,7 @@ define(function (require, exports, module) {
             }
         }
 
-        _getUpdateInformation(force || usingOverrides, usingOverrides, versionInfoUrl)
+        /*_getUpdateInformation(force || usingOverrides, usingOverrides, versionInfoUrl)
             .done(function (versionInfo) {
                 // Get all available updates
                 var allUpdates = _stripOldVersionInfo(versionInfo, _buildNumber);
@@ -427,7 +427,7 @@ define(function (require, exports, module) {
                     );
                 }
                 result.reject();
-            });
+            });*/
 
         return result.promise();
     }

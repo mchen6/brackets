@@ -9,10 +9,6 @@
         {
             "key": "Ctrl-Tab",
             "platform": "mac"
-        },
-        {
-            "key": "Cmd-Shift-]",
-            "platform": "mac"
         }
     ],
     "recent-files.prev":  [
@@ -21,10 +17,6 @@
         },
         {
             "key": "Ctrl-Shift-Tab",
-            "platform": "mac"
-        },
-        {
-            "key": "Cmd-Shift-[",
             "platform": "mac"
         }
     ]

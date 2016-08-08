@@ -51,8 +51,8 @@ define(function (require, exports, module) {
     function addCommand() {
         CommandManager.register(Strings.CMD_HEALTH_DATA_STATISTICS, healthDataCmdId, handleHealthDataStatistics);
 
-        menu.addMenuItem(healthDataCmdId, "", Menus.AFTER, Commands.HELP_SHOW_EXT_FOLDER);
-        menu.addMenuDivider(Menus.AFTER, Commands.HELP_SHOW_EXT_FOLDER);
+        //menu.addMenuItem(healthDataCmdId, "", Menus.AFTER, Commands.HELP_SHOW_EXT_FOLDER);
+        //menu.addMenuDivider(Menus.AFTER, Commands.HELP_SHOW_EXT_FOLDER);
     }
 
     function initTest() {
