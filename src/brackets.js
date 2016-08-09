@@ -60,30 +60,30 @@ define(function (require, exports, module) {
     require("thirdparty/CodeMirror/keymap/sublime");
 
     // Load dependent modules
-    var AppInit = require("utils/AppInit"),
-        LanguageManager = require("language/LanguageManager"),
-        ProjectManager = require("project/ProjectManager"),
-        FileViewController = require("project/FileViewController"),
-        FileSyncManager = require("project/FileSyncManager"),
-        Commands = require("command/Commands"),
-        CommandManager = require("command/CommandManager"),
-        PerfUtils = require("utils/PerfUtils"),
-        FileSystem = require("filesystem/FileSystem"),
-        Strings = require("strings"),
-        Dialogs = require("widgets/Dialogs"),
-        DefaultDialogs = require("widgets/DefaultDialogs"),
-        ExtensionLoader = require("utils/ExtensionLoader"),
-        Async = require("utils/Async"),
-        UpdateNotification = require("utils/UpdateNotification"),
-        UrlParams = require("utils/UrlParams").UrlParams,
-        PreferencesManager = require("preferences/PreferencesManager"),
-        DragAndDrop = require("utils/DragAndDrop"),
-        NativeApp = require("utils/NativeApp"),
-        DeprecationWarning = require("utils/DeprecationWarning"),
+    var AppInit             = require("utils/AppInit"),
+        LanguageManager     = require("language/LanguageManager"),
+        ProjectManager      = require("project/ProjectManager"),
+        FileViewController  = require("project/FileViewController"),
+        FileSyncManager     = require("project/FileSyncManager"),
+        Commands            = require("command/Commands"),
+        CommandManager      = require("command/CommandManager"),
+        PerfUtils           = require("utils/PerfUtils"),
+        FileSystem          = require("filesystem/FileSystem"),
+        Strings             = require("strings"),
+        Dialogs             = require("widgets/Dialogs"),
+        DefaultDialogs      = require("widgets/DefaultDialogs"),
+        ExtensionLoader     = require("utils/ExtensionLoader"),
+        Async               = require("utils/Async"),
+        UpdateNotification  = require("utils/UpdateNotification"),
+        UrlParams           = require("utils/UrlParams").UrlParams,
+        PreferencesManager  = require("preferences/PreferencesManager"),
+        DragAndDrop         = require("utils/DragAndDrop"),
+        NativeApp           = require("utils/NativeApp"),
+        DeprecationWarning  = require("utils/DeprecationWarning"),
         ViewCommandHandlers = require("view/ViewCommandHandlers"),
-        MainViewManager = require("view/MainViewManager");
+        MainViewManager     = require("view/MainViewManager");
 
-    var MainViewHTML = require("text!htmlContent/main-view.html");
+    var MainViewHTML        = require("text!htmlContent/main-view.html");
 
     // load modules for later use
     require("utils/Global");
@@ -146,8 +146,8 @@ define(function (require, exports, module) {
     require("editor/EditorOptionHandlers");
     require("editor/EditorStatusBar");
     require("editor/ImageViewer");
-    // require("extensibility/InstallExtensionDialog");
-    // require("extensibility/ExtensionManagerDialog");
+    require("extensibility/InstallExtensionDialog");
+    require("extensibility/ExtensionManagerDialog");
     require("help/HelpCommandHandlers");
     require("search/FindInFilesUI");
     require("search/FindReplace");
@@ -174,51 +174,51 @@ define(function (require, exports, module) {
         // in the modules since they would run in context of the unit test window,
         // and would not have access to the app html/css.
         brackets.test = {
-            CodeHintManager: require("editor/CodeHintManager"),
-            CodeInspection: require("language/CodeInspection"),
-            CommandManager: require("command/CommandManager"),
-            Commands: require("command/Commands"),
-            CSSUtils: require("language/CSSUtils"),
-            DefaultDialogs: require("widgets/DefaultDialogs"),
-            Dialogs: require("widgets/Dialogs"),
-            DocumentCommandHandlers: require("document/DocumentCommandHandlers"),
-            DocumentManager: require("document/DocumentManager"),
-            DocumentModule: require("document/Document"),
-            DOMAgent: require("LiveDevelopment/Agents/DOMAgent"),
-            DragAndDrop: require("utils/DragAndDrop"),
-            EditorManager: require("editor/EditorManager"),
-            ExtensionLoader: require("utils/ExtensionLoader"),
-            ExtensionUtils: require("utils/ExtensionUtils"),
-            File: require("filesystem/File"),
-            FileFilters: require("search/FileFilters"),
-            FileSyncManager: require("project/FileSyncManager"),
-            FileSystem: require("filesystem/FileSystem"),
-            FileUtils: require("file/FileUtils"),
-            FileViewController: require("project/FileViewController"),
-            FindInFiles: require("search/FindInFiles"),
-            FindInFilesUI: require("search/FindInFilesUI"),
-            HTMLInstrumentation: require("language/HTMLInstrumentation"),
-            Inspector: require("LiveDevelopment/Inspector/Inspector"),
-            InstallExtensionDialog: require("extensibility/InstallExtensionDialog"),
-            JSUtils: require("language/JSUtils"),
-            KeyBindingManager: require("command/KeyBindingManager"),
-            LanguageManager: require("language/LanguageManager"),
-            LiveDevelopment: require("LiveDevelopment/LiveDevelopment"),
-            LiveDevMultiBrowser: require("LiveDevelopment/LiveDevMultiBrowser"),
-            LiveDevServerManager: require("LiveDevelopment/LiveDevServerManager"),
-            MainViewFactory: require("view/MainViewFactory"),
-            MainViewManager: require("view/MainViewManager"),
-            Menus: require("command/Menus"),
-            MultiRangeInlineEditor: require("editor/MultiRangeInlineEditor").MultiRangeInlineEditor,
-            NativeApp: require("utils/NativeApp"),
-            PerfUtils: require("utils/PerfUtils"),
-            PreferencesManager: require("preferences/PreferencesManager"),
-            ProjectManager: require("project/ProjectManager"),
-            RemoteAgent: require("LiveDevelopment/Agents/RemoteAgent"),
-            ScrollTrackMarkers: require("search/ScrollTrackMarkers"),
-            UpdateNotification: require("utils/UpdateNotification"),
-            WorkingSetView: require("project/WorkingSetView"),
-            doneLoading: false
+            CodeHintManager         : require("editor/CodeHintManager"),
+            CodeInspection          : require("language/CodeInspection"),
+            CommandManager          : require("command/CommandManager"),
+            Commands                : require("command/Commands"),
+            CSSUtils                : require("language/CSSUtils"),
+            DefaultDialogs          : require("widgets/DefaultDialogs"),
+            Dialogs                 : require("widgets/Dialogs"),
+            DocumentCommandHandlers : require("document/DocumentCommandHandlers"),
+            DocumentManager         : require("document/DocumentManager"),
+            DocumentModule          : require("document/Document"),
+            DOMAgent                : require("LiveDevelopment/Agents/DOMAgent"),
+            DragAndDrop             : require("utils/DragAndDrop"),
+            EditorManager           : require("editor/EditorManager"),
+            ExtensionLoader         : require("utils/ExtensionLoader"),
+            ExtensionUtils          : require("utils/ExtensionUtils"),
+            File                    : require("filesystem/File"),
+            FileFilters             : require("search/FileFilters"),
+            FileSyncManager         : require("project/FileSyncManager"),
+            FileSystem              : require("filesystem/FileSystem"),
+            FileUtils               : require("file/FileUtils"),
+            FileViewController      : require("project/FileViewController"),
+            FindInFiles             : require("search/FindInFiles"),
+            FindInFilesUI           : require("search/FindInFilesUI"),
+            HTMLInstrumentation     : require("language/HTMLInstrumentation"),
+            Inspector               : require("LiveDevelopment/Inspector/Inspector"),
+            InstallExtensionDialog  : require("extensibility/InstallExtensionDialog"),
+            JSUtils                 : require("language/JSUtils"),
+            KeyBindingManager       : require("command/KeyBindingManager"),
+            LanguageManager         : require("language/LanguageManager"),
+            LiveDevelopment         : require("LiveDevelopment/LiveDevelopment"),
+            LiveDevMultiBrowser     : require("LiveDevelopment/LiveDevMultiBrowser"),
+            LiveDevServerManager    : require("LiveDevelopment/LiveDevServerManager"),
+            MainViewFactory         : require("view/MainViewFactory"),
+            MainViewManager         : require("view/MainViewManager"),
+            Menus                   : require("command/Menus"),
+            MultiRangeInlineEditor  : require("editor/MultiRangeInlineEditor").MultiRangeInlineEditor,
+            NativeApp               : require("utils/NativeApp"),
+            PerfUtils               : require("utils/PerfUtils"),
+            PreferencesManager      : require("preferences/PreferencesManager"),
+            ProjectManager          : require("project/ProjectManager"),
+            RemoteAgent             : require("LiveDevelopment/Agents/RemoteAgent"),
+            ScrollTrackMarkers      : require("search/ScrollTrackMarkers"),
+            UpdateNotification      : require("utils/UpdateNotification"),
+            WorkingSetView          : require("project/WorkingSetView"),
+            doneLoading             : false
         };
 
         AppInit.appReady(function () {
@@ -260,12 +260,12 @@ define(function (require, exports, module) {
         Async.waitForAll([LanguageManager.ready, PreferencesManager.ready]).always(function () {
             // Load all extensions. This promise will complete even if one or more
             // extensions fail to load.
-            var extensionPathOverride = params.get("extensions"); // used by unit tests
+            var extensionPathOverride = params.get("extensions");  // used by unit tests
             var extensionLoaderPromise = ExtensionLoader.init(extensionPathOverride ? extensionPathOverride.split(",") : null);
 
             // Load the initial project after extensions have loaded
             extensionLoaderPromise.always(function () {
-                // Signal that extensions are loaded
+               // Signal that extensions are loaded
                 AppInit._dispatchReady(AppInit.EXTENSIONS_LOADED);
 
                 // Finish UI initialization
@@ -285,9 +285,7 @@ define(function (require, exports, module) {
                         if (ProjectManager.isWelcomeProjectPath(initialProjectPath)) {
                             FileSystem.resolve(initialProjectPath + "index.html", function (err, file) {
                                 if (!err) {
-                                    var promise = CommandManager.execute(Commands.CMD_ADD_TO_WORKINGSET_AND_OPEN, {
-                                        fullPath: file.fullPath
-                                    });
+                                    var promise = CommandManager.execute(Commands.CMD_ADD_TO_WORKINGSET_AND_OPEN, { fullPath: file.fullPath });
                                     promise.then(deferred.resolve, deferred.reject);
                                 } else {
                                     deferred.reject();
@@ -380,10 +378,7 @@ define(function (require, exports, module) {
         }
 
         // Localize MainViewHTML and inject into <BODY> tag
-        $("body").html(Mustache.render(MainViewHTML, {
-            shouldAddAA: (brackets.platform === "mac"),
-            Strings: Strings
-        }));
+        $("body").html(Mustache.render(MainViewHTML, { shouldAddAA: (brackets.platform === "mac"), Strings: Strings }));
 
         // Update title
         $("title").text(brackets.config.app_title);
@@ -414,9 +409,9 @@ define(function (require, exports, module) {
             // Text fields should always be focusable.
             var $target = $(e.target),
                 isFormElement =
-                $target.is("input") ||
-                $target.is("textarea") ||
-                $target.is("select");
+                    $target.is("input") ||
+                    $target.is("textarea") ||
+                    $target.is("select");
 
             if (!isFormElement) {
                 e.preventDefault();
@@ -429,8 +424,7 @@ define(function (require, exports, module) {
         // navigate. Also, a capture handler is more reliable than bubble.
         window.document.body.addEventListener("click", function (e) {
             // Check parents too, in case link has inline formatting tags
-            var node = e.target,
-                url;
+            var node = e.target, url;
             while (node) {
                 if (node.tagName === "A") {
                     url = node.getAttribute("href");
@@ -470,7 +464,7 @@ define(function (require, exports, module) {
             // Is this a Brackets EventDispatcher object? (not a DOM node or other object)
             if (firstArg && firstArg._EventDispatcher) {
                 // Patch the jQ wrapper object so it calls EventDispatcher's APIs instead of jQuery's
-                jQObject.on = firstArg.on.bind(firstArg);
+                jQObject.on  = firstArg.on.bind(firstArg);
                 jQObject.one = firstArg.one.bind(firstArg);
                 jQObject.off = firstArg.off.bind(firstArg);
                 // Don't offer legacy support for trigger()/triggerHandler() on core model objects; extensions

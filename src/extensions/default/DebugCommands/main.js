@@ -54,10 +54,10 @@ define(function (require, exports, module) {
 
     // default preferences file name
     var DEFAULT_PREFERENCES_FILENAME = "defaultPreferences.json",
-        SUPPORTED_PREFERENCE_TYPES = ["number", "boolean", "string", "array", "object"];
+        SUPPORTED_PREFERENCE_TYPES   = ["number", "boolean", "string", "array", "object"];
 
-    var recomputeDefaultPrefs = true,
-        defaultPreferencesFullPath = brackets.app.getApplicationSupportDirectory() + "/" + DEFAULT_PREFERENCES_FILENAME;
+    var recomputeDefaultPrefs        = true,
+        defaultPreferencesFullPath   = brackets.app.getApplicationSupportDirectory() + "/" + DEFAULT_PREFERENCES_FILENAME;
 
     /**
      * Brackets Application Menu Constant
@@ -65,31 +65,31 @@ define(function (require, exports, module) {
      */
     var DEBUG_MENU = "debug-menu";
 
-    /**
-     * Debug commands IDs
-     * @enum {string}
-     */
-    var DEBUG_REFRESH_WINDOW = "debug.refreshWindow", // string must MATCH string in native code (brackets_extensions)
-        DEBUG_SHOW_DEVELOPER_TOOLS = "debug.showDeveloperTools",
-        DEBUG_RUN_UNIT_TESTS = "debug.runUnitTests",
-        DEBUG_SHOW_PERF_DATA = "debug.showPerfData",
-        DEBUG_RELOAD_WITHOUT_USER_EXTS = "debug.reloadWithoutUserExts",
-        DEBUG_NEW_BRACKETS_WINDOW = "debug.newBracketsWindow",
-        DEBUG_SWITCH_LANGUAGE = "debug.switchLanguage",
-        DEBUG_ENABLE_NODE_DEBUGGER = "debug.enableNodeDebugger",
-        DEBUG_LOG_NODE_STATE = "debug.logNodeState",
-        DEBUG_RESTART_NODE = "debug.restartNode",
-        DEBUG_SHOW_ERRORS_IN_STATUS_BAR = "debug.showErrorsInStatusBar",
-        DEBUG_OPEN_BRACKETS_SOURCE = "debug.openBracketsSource",
-        DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW = "debug.openPrefsInSplitView";
+     /**
+      * Debug commands IDs
+      * @enum {string}
+      */
+    var DEBUG_REFRESH_WINDOW                  = "debug.refreshWindow", // string must MATCH string in native code (brackets_extensions)
+        DEBUG_SHOW_DEVELOPER_TOOLS            = "debug.showDeveloperTools",
+        DEBUG_RUN_UNIT_TESTS                  = "debug.runUnitTests",
+        DEBUG_SHOW_PERF_DATA                  = "debug.showPerfData",
+        DEBUG_RELOAD_WITHOUT_USER_EXTS        = "debug.reloadWithoutUserExts",
+        DEBUG_NEW_BRACKETS_WINDOW             = "debug.newBracketsWindow",
+        DEBUG_SWITCH_LANGUAGE                 = "debug.switchLanguage",
+        DEBUG_ENABLE_NODE_DEBUGGER            = "debug.enableNodeDebugger",
+        DEBUG_LOG_NODE_STATE                  = "debug.logNodeState",
+        DEBUG_RESTART_NODE                    = "debug.restartNode",
+        DEBUG_SHOW_ERRORS_IN_STATUS_BAR       = "debug.showErrorsInStatusBar",
+        DEBUG_OPEN_BRACKETS_SOURCE            = "debug.openBracketsSource",
+        DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW  = "debug.openPrefsInSplitView";
 
     // define a preference to turn off opening preferences in split-view.
     var prefs = PreferencesManager.getExtensionPrefs("preferencesView");
-    prefs.definePreference("openPrefsInSplitView", "boolean", true, {
+    prefs.definePreference("openPrefsInSplitView",   "boolean", true, {
         description: Strings.DESCRIPTION_OPEN_PREFS_IN_SPLIT_VIEW
     });
 
-    prefs.definePreference("openUserPrefsInSecondPane", "boolean", true, {
+    prefs.definePreference("openUserPrefsInSecondPane",   "boolean", true, {
         description: Strings.DESCRIPTION_OPEN_USER_PREFS_IN_SECOND_PANE
     });
 
@@ -103,7 +103,6 @@ define(function (require, exports, module) {
 
     // Implements the 'Run Tests' menu to bring up the Jasmine unit test window
     var _testWindow = null;
-
     function _runUnitTests(spec) {
         var queryString = spec ? "?spec=" + spec : "";
         if (_testWindow && !_testWindow.closed) {
@@ -140,9 +139,7 @@ define(function (require, exports, module) {
             // entry is either an Array or a number
             if (Array.isArray(entry)) {
                 // For Array of values, return: minimum/average(count)/maximum/last
-                var i, e, avg, sum = 0,
-                    min = Number.MAX_VALUE,
-                    max = 0;
+                var i, e, avg, sum = 0, min = Number.MAX_VALUE, max = 0;
 
                 for (i = 0; i < entry.length; i++) {
                     e = entry[i];
@@ -161,7 +158,7 @@ define(function (require, exports, module) {
         _.forEach(perfData, function (value, testName) {
             templateVars.perfData.push({
                 testName: StringUtils.breakableUrl(testName),
-                value: getValue(value)
+                value:    getValue(value)
             });
         });
 
@@ -205,18 +202,12 @@ define(function (require, exports, module) {
                                 label += match[2].toUpperCase();
                             }
 
-                            languages.push({
-                                label: LocalizationUtils.getLocalizedLabel(label),
-                                language: language
-                            });
+                            languages.push({label: LocalizationUtils.getLocalizedLabel(label), language: language});
                         }
                     }
                 });
                 // add English (US), which is the root folder and should be sorted as well
-                languages.push({
-                    label: LocalizationUtils.getLocalizedLabel("en"),
-                    language: "en"
-                });
+                languages.push({label: LocalizationUtils.getLocalizedLabel("en"),  language: "en"});
 
                 // sort the languages via their display name
                 languages.sort(function (lang1, lang2) {
@@ -224,15 +215,9 @@ define(function (require, exports, module) {
                 });
 
                 // add system default (which is placed on the very top)
-                languages.unshift({
-                    label: Strings.LANGUAGE_SYSTEM_DEFAULT,
-                    language: null
-                });
+                languages.unshift({label: Strings.LANGUAGE_SYSTEM_DEFAULT, language: null});
 
-                var template = Mustache.render(LanguageDialogTemplate, {
-                    languages: languages,
-                    Strings: Strings
-                });
+                var template = Mustache.render(LanguageDialogTemplate, {languages: languages, Strings: Strings});
                 Dialogs.showModalDialogUsingTemplate(template).done(function (id) {
                     if (id === Dialogs.DIALOG_BTN_OK && locale !== curLocale) {
                         brackets.setLocale(locale);
@@ -296,17 +281,17 @@ define(function (require, exports, module) {
 
     function _openPrefFilesInSplitView(prefsPath, defaultPrefsPath, deferredPromise) {
 
-        var currScheme = MainViewManager.getLayoutScheme(),
-            file = FileSystem.getFileForPath(prefsPath),
-            defaultPrefsFile = FileSystem.getFileForPath(defaultPrefsPath),
+        var currScheme         = MainViewManager.getLayoutScheme(),
+            file               = FileSystem.getFileForPath(prefsPath),
+            defaultPrefsFile   = FileSystem.getFileForPath(defaultPrefsPath),
             DEFAULT_PREFS_PANE = "first-pane",
-            USER_PREFS_PANE = "second-pane";
+            USER_PREFS_PANE    = "second-pane";
 
         // Exchange the panes, if default preferences need to be opened
         // in the right pane.
         if (!prefs.get("openUserPrefsInSecondPane")) {
             DEFAULT_PREFS_PANE = "second-pane";
-            USER_PREFS_PANE = "first-pane";
+            USER_PREFS_PANE    = "first-pane";
         }
 
         function _openFiles() {
@@ -318,13 +303,7 @@ define(function (require, exports, module) {
             }
 
             // Open the default preferences in the left pane in the read only mode.
-            CommandManager.execute(Commands.FILE_OPEN, {
-                    fullPath: defaultPrefsPath,
-                    paneId: DEFAULT_PREFS_PANE,
-                    options: {
-                        isReadOnly: true
-                    }
-                })
+            CommandManager.execute(Commands.FILE_OPEN, { fullPath: defaultPrefsPath, paneId: DEFAULT_PREFS_PANE, options: { isReadOnly: true } })
                 .done(function () {
 
                     // Make sure the preference file is going to be opened in pane
@@ -338,10 +317,7 @@ define(function (require, exports, module) {
                         WorkingSetView.refresh(true);
                     }
 
-                    CommandManager.execute(Commands.FILE_OPEN, {
-                            fullPath: prefsPath,
-                            paneId: USER_PREFS_PANE
-                        })
+                    CommandManager.execute(Commands.FILE_OPEN, { fullPath: prefsPath, paneId: USER_PREFS_PANE})
                         .done(function () {
                             deferredPromise.resolve();
                         }).fail(function () {
@@ -354,10 +330,7 @@ define(function (require, exports, module) {
 
         var resultObj = MainViewManager.findInAllWorkingSets(defaultPrefsPath);
         if (resultObj && resultObj.length > 0) {
-            CommandManager.execute(Commands.FILE_CLOSE, {
-                    file: defaultPrefsFile,
-                    paneId: resultObj[0].paneId
-                })
+            CommandManager.execute(Commands.FILE_CLOSE, {file: defaultPrefsFile, paneId: resultObj[0].paneId})
                 .done(function () {
                     _openFiles();
                 }).fail(function () {
@@ -378,11 +351,11 @@ define(function (require, exports, module) {
         }
     }
 
-    /*
-     * This method tries to deduce the preference type
-     * based on various parameters like objects initial
-     * value, object type, object's type property.
-     */
+   /*
+    * This method tries to deduce the preference type
+    * based on various parameters like objects initial
+    * value, object type, object's type property.
+    */
     function _getPrefType(prefItem) {
 
         var finalPrefType = "undefined";
@@ -420,8 +393,8 @@ define(function (require, exports, module) {
                 // is an array, in which case
                 // we log the default.
                 finalPrefType = "array";
-            } else if (prefItem.initial !== undefined ||
-                prefItem.keys !== undefined) {
+            } else if (prefItem.initial !== undefined  ||
+                       prefItem.keys !== undefined) {
 
                 // OK looks like this preference has
                 // no explicit type defined. instead
@@ -466,11 +439,11 @@ define(function (require, exports, module) {
         return false;
     }
 
-    /*
-     * This method tries to match between initial objects
-     * and key objects and then aggregates objects from both
-     * the properties.
-     */
+   /*
+    * This method tries to match between initial objects
+    * and key objects and then aggregates objects from both
+    * the properties.
+    */
     function _getChildPrefs(prefItem) {
 
         var finalObj = {},
@@ -515,9 +488,9 @@ define(function (require, exports, module) {
         }
 
         var prefDescription = prefItem.description || "",
-            prefDefault = prefItem.initial,
-            prefFormatText = tabIndentStr + "\t// {0}\n" + tabIndentStr + "\t\"{1}\": {2}",
-            prefItemType = _getPrefType(prefItem);
+            prefDefault     = prefItem.initial,
+            prefFormatText  = tabIndentStr + "\t// {0}\n" + tabIndentStr + "\t\"{1}\": {2}",
+            prefItemType    = _getPrefType(prefItem);
 
         if (prefDefault === undefined && !prefItem.description) {
             // This could be the case when prefItem is a basic JS variable.
@@ -556,7 +529,7 @@ define(function (require, exports, module) {
         return StringUtils.format(prefFormatText, prefDescription, prefName, prefDefault);
     }
 
-    function _formatPref(prefName, prefItem, indentLevel) {
+    function _formatPref(prefName,  prefItem, indentLevel) {
 
         // check for validity of the parameters being passed
         if (!prefItem || indentLevel < 0 || !prefName || !prefName.length) {
@@ -565,12 +538,12 @@ define(function (require, exports, module) {
 
         var iLevel,
             prefItemKeys,
-            entireText = "",
-            prefItemDesc = prefItem.description || "",
-            prefItemType = _getPrefType(prefItem),
-            hasKeys = false,
-            tabIndents = "",
-            numKeys = 0;
+            entireText     = "",
+            prefItemDesc   = prefItem.description || "",
+            prefItemType   = _getPrefType(prefItem),
+            hasKeys        = false,
+            tabIndents     = "",
+            numKeys        = 0;
 
         // Generate the indentLevel string
         for (iLevel = 0; iLevel < indentLevel; iLevel++) {
@@ -651,9 +624,9 @@ define(function (require, exports, module) {
 
     function _getDefaultPreferencesString() {
 
-        var allPrefs = PreferencesManager.getAllPreferences(),
-            headerComment = Strings.DEFAULT_PREFERENCES_JSON_HEADER_COMMENT + "\n\n{\n",
-            entireText = "";
+        var allPrefs       = PreferencesManager.getAllPreferences(),
+            headerComment  = Strings.DEFAULT_PREFERENCES_JSON_HEADER_COMMENT + "\n\n{\n",
+            entireText     = "";
 
         Object.keys(allPrefs).sort().forEach(function (property) {
             if (allPrefs.hasOwnProperty(property)) {
@@ -679,7 +652,7 @@ define(function (require, exports, module) {
     function _loadDefaultPrefs(prefsPath, deferredPromise) {
 
         var defaultPrefsPath = defaultPreferencesFullPath,
-            file = FileSystem.getFileForPath(defaultPrefsPath);
+            file             = FileSystem.getFileForPath(defaultPrefsPath);
 
         function _executeDefaultOpenPrefsCommand() {
 
@@ -698,7 +671,7 @@ define(function (require, exports, module) {
                 // Go about recreating the default preferecences file.
                 if (recomputeDefaultPrefs) {
 
-                    var prefsString = _getDefaultPreferencesString();
+                    var prefsString       = _getDefaultPreferencesString();
                     recomputeDefaultPrefs = false;
 
                     // We need to delete this first
@@ -751,10 +724,10 @@ define(function (require, exports, module) {
 
     function handleOpenPrefsInSplitView() {
 
-        var fullPath = PreferencesManager.getUserPrefFile(),
-            file = FileSystem.getFileForPath(fullPath),
+        var fullPath        = PreferencesManager.getUserPrefFile(),
+            file            = FileSystem.getFileForPath(fullPath),
             splitViewPrefOn = prefs.get("openPrefsInSplitView"),
-            result = new $.Deferred();
+            result          = new $.Deferred();
 
         if (!splitViewPrefOn) {
             return CommandManager.execute(Commands.FILE_OPEN_PREFERENCES);
@@ -785,29 +758,29 @@ define(function (require, exports, module) {
     /* Register all the command handlers */
 
     // Show Developer Tools (optionally enabled)
-    CommandManager.register(Strings.CMD_SHOW_DEV_TOOLS, DEBUG_SHOW_DEVELOPER_TOOLS, handleShowDeveloperTools)
+    CommandManager.register(Strings.CMD_SHOW_DEV_TOOLS,             DEBUG_SHOW_DEVELOPER_TOOLS,     handleShowDeveloperTools)
         .setEnabled(!!brackets.app.showDeveloperTools);
-    CommandManager.register(Strings.CMD_REFRESH_WINDOW, DEBUG_REFRESH_WINDOW, handleReload);
-    CommandManager.register(Strings.CMD_RELOAD_WITHOUT_USER_EXTS, DEBUG_RELOAD_WITHOUT_USER_EXTS, handleReloadWithoutUserExts);
-    CommandManager.register(Strings.CMD_NEW_BRACKETS_WINDOW, DEBUG_NEW_BRACKETS_WINDOW, handleNewBracketsWindow);
+    CommandManager.register(Strings.CMD_REFRESH_WINDOW,             DEBUG_REFRESH_WINDOW,           handleReload);
+    CommandManager.register(Strings.CMD_RELOAD_WITHOUT_USER_EXTS,   DEBUG_RELOAD_WITHOUT_USER_EXTS, handleReloadWithoutUserExts);
+    CommandManager.register(Strings.CMD_NEW_BRACKETS_WINDOW,        DEBUG_NEW_BRACKETS_WINDOW,      handleNewBracketsWindow);
 
     // Start with the "Run Tests" item disabled. It will be enabled later if the test file can be found.
-    CommandManager.register(Strings.CMD_RUN_UNIT_TESTS, DEBUG_RUN_UNIT_TESTS, _runUnitTests)
+    CommandManager.register(Strings.CMD_RUN_UNIT_TESTS,       DEBUG_RUN_UNIT_TESTS,         _runUnitTests)
         .setEnabled(false);
 
-    CommandManager.register(Strings.CMD_SHOW_PERF_DATA, DEBUG_SHOW_PERF_DATA, handleShowPerfData);
+    CommandManager.register(Strings.CMD_SHOW_PERF_DATA,            DEBUG_SHOW_PERF_DATA,            handleShowPerfData);
 
     // Open Brackets Source (optionally enabled)
-    CommandManager.register(Strings.CMD_OPEN_BRACKETS_SOURCE, DEBUG_OPEN_BRACKETS_SOURCE, handleOpenBracketsSource)
+    CommandManager.register(Strings.CMD_OPEN_BRACKETS_SOURCE,      DEBUG_OPEN_BRACKETS_SOURCE,      handleOpenBracketsSource)
         .setEnabled(!StringUtils.endsWith(decodeURI(window.location.pathname), "/www/index.html"));
 
-    CommandManager.register(Strings.CMD_SWITCH_LANGUAGE, DEBUG_SWITCH_LANGUAGE, handleSwitchLanguage);
+    CommandManager.register(Strings.CMD_SWITCH_LANGUAGE,           DEBUG_SWITCH_LANGUAGE,           handleSwitchLanguage);
     CommandManager.register(Strings.CMD_SHOW_ERRORS_IN_STATUS_BAR, DEBUG_SHOW_ERRORS_IN_STATUS_BAR, toggleErrorNotification);
 
     // Node-related Commands
-    CommandManager.register(Strings.CMD_ENABLE_NODE_DEBUGGER, DEBUG_ENABLE_NODE_DEBUGGER, NodeDebugUtils.enableDebugger);
-    CommandManager.register(Strings.CMD_LOG_NODE_STATE, DEBUG_LOG_NODE_STATE, NodeDebugUtils.logNodeState);
-    CommandManager.register(Strings.CMD_RESTART_NODE, DEBUG_RESTART_NODE, NodeDebugUtils.restartNode);
+    CommandManager.register(Strings.CMD_ENABLE_NODE_DEBUGGER, DEBUG_ENABLE_NODE_DEBUGGER,   NodeDebugUtils.enableDebugger);
+    CommandManager.register(Strings.CMD_LOG_NODE_STATE,       DEBUG_LOG_NODE_STATE,         NodeDebugUtils.logNodeState);
+    CommandManager.register(Strings.CMD_RESTART_NODE,         DEBUG_RESTART_NODE,           NodeDebugUtils.restartNode);
 
     CommandManager.register(Strings.CMD_OPEN_PREFERENCES, DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW, handleOpenPrefsInSplitView);
 
