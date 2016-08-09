@@ -460,6 +460,7 @@ define(function (require, exports, module) {
             if (url.match(/^http:\/\//) || url.match(/^https:\/\//)) {
                 return real_windowOpen.apply(window, arguments);
             }
+        };
 
         // jQuery patch to shim deprecated usage of $() on EventDispatchers
         var DefaultCtor = jQuery.fn.init;
