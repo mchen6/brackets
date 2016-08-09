@@ -37,4 +37,5 @@ Thumbs.db
 
 # Files that can be automatically downloaded that we don't want to ship with our builds
 /src/extensibility/node/node_modules/request/tests/
-
+/src/LiveDevelopment/MultiBrowserImpl/transports/node/NodeSocketTransportDomain.js
+/src/LiveDevelopment/MultiBrowserImpl/transports/NodeSocketTransport.js

@@ -31,6 +31,7 @@ define({
      */
 
     // General file io error strings
+    "APP_NAME"                          : "nodeSpeed Development",
     "GENERIC_ERROR"                     : "(error {0})",
     "NOT_FOUND_ERR"                     : "The file/directory could not be found.",
     "NOT_READABLE_ERR"                  : "The file/directory could not be read.",
@@ -605,7 +606,7 @@ define({
     "CMD_SHOW_PERF_DATA"                        : "Show Performance Data",
     "CMD_ENABLE_NODE_DEBUGGER"                  : "Enable Node Debugger",
     "CMD_LOG_NODE_STATE"                        : "Log Node State to Console",
-    "CMD_RESTART_NODE"                          : "Restart Node",
+    "CMD_RESTART_NODE"                          : "Restart nodeSpeed",
     "CMD_SHOW_ERRORS_IN_STATUS_BAR"             : "Show Errors in Status Bar",
     "CMD_OPEN_BRACKETS_SOURCE"                  : "Open {APP_NAME} Source",
 

@@ -47,7 +47,8 @@ define(function (require, exports, module) {
     var additionalGlobals = $.extend({}, urls),
         parsedVersion = /([0-9]+)\.([0-9]+)\.([0-9]+)/.exec(brackets.metadata.version);
 
-    additionalGlobals.APP_NAME      = brackets.metadata.name || strings.APP_NAME;
+    additionalGlobals.APP_NAME      = strings.APP_NAME;
+//    additionalGlobals.APP_NAME      = brackets.metadata.name || strings.APP_NAME;
     additionalGlobals.APP_TITLE     = brackets.config.app_title || strings.APP_NAME;
     additionalGlobals.TWITTER_NAME  = brackets.config.twitter_name;
     additionalGlobals.VERSION       = brackets.metadata.version;

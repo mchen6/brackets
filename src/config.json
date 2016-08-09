@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
    "config": {
+=======
+    "config": {
+>>>>>>> nodespeed-master
         "app_title"                  : "nodeSpeed Brackets Development",
         "app_name_about"             : "nodeSpeed Brackets Development",
         "about_icon"                 : "styles/images/nodespeed_inverted_.png",
@@ -23,8 +27,8 @@
         "healthDataServerURL"        : "https://health.brackets.io/healthDataLog"
     },
     "name": "Brackets",
-    "version": "1.7.0-0",
-    "apiVersion": "1.7.0",
+    "version": "1.6.0-0",
+    "apiVersion": "1.6.0",
     "homepage": "http://brackets.io",
     "issues": {
         "url": "http://github.com/adobe/brackets/issues"
@@ -66,10 +70,8 @@
         "postinstall": "grunt install",
         "test": "grunt cla-check-pull test"
     },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://github.com/adobe/brackets/blob/master/LICENSE"
-        }
-    ]
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/adobe/brackets/blob/master/LICENSE"
+    }]
 }

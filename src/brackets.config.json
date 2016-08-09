@@ -1,8 +1,8 @@
 {
     "config"                :
     {
-        "app_title"                  : "nodeSpeed Development",
-        "app_name_about"             : "nodeSpeed Development",
+        "app_title"                  : "nodeSpeed Brackets Development",
+        "app_name_about"             : "nodeSpeed Brackets Development",
         "about_icon"                 : "styles/images/nodespeed_inverted_.png",
         "update_info_url"            : "https://getupdates.brackets.io/getupdates/",
         "how_to_use_url"             : "https://whogloo-confluence.nodespeed.io/pages/viewpage.action?pageId=1867846",

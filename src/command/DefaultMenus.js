@@ -31,10 +31,10 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var AppInit         = require("utils/AppInit"),
-        Commands        = require("command/Commands"),
-        Menus           = require("command/Menus"),
-        Strings         = require("strings");
+    var AppInit = require("utils/AppInit"),
+        Commands = require("command/Commands"),
+        Menus = require("command/Menus"),
+        Strings = require("strings");
 
     AppInit.htmlReady(function () {
         /*
@@ -166,6 +166,7 @@ define(function (require, exports, module) {
          * Help menu
          */
         menu = Menus.addMenu(Strings.HELP_MENU, Menus.AppMenuBar.HELP_MENU);
+
         //menu.addMenuItem(Commands.HELP_CHECK_FOR_UPDATE);
         //menu.addMenuDivider();
 
@@ -220,7 +221,7 @@ define(function (require, exports, module) {
         workingset_cmenu.addMenuItem(Commands.FILE_SAVE_AS);
         workingset_cmenu.addMenuItem(Commands.FILE_RENAME);
         workingset_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_FILE_TREE);
-        workingset_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_OS);
+        // workingset_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_OS);
         workingset_cmenu.addMenuDivider();
         workingset_cmenu.addMenuItem(Commands.CMD_FIND_IN_SUBTREE);
         workingset_cmenu.addMenuItem(Commands.CMD_REPLACE_IN_SUBTREE);
@@ -244,7 +245,7 @@ define(function (require, exports, module) {
         project_cmenu.addMenuItem(Commands.FILE_NEW_FOLDER);
         project_cmenu.addMenuItem(Commands.FILE_RENAME);
         project_cmenu.addMenuItem(Commands.FILE_DELETE);
-        project_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_OS);
+        // project_cmenu.addMenuItem(Commands.NAVIGATE_SHOW_IN_OS);
         project_cmenu.addMenuDivider();
         project_cmenu.addMenuItem(Commands.CMD_FIND_IN_SUBTREE);
         project_cmenu.addMenuItem(Commands.CMD_REPLACE_IN_SUBTREE);
