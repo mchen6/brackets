@@ -28,6 +28,7 @@ define({
      */
 
     // General file io error strings
+    "APP_NAME"                          : "nodeSpeed Development",
     "GENERIC_ERROR"                     : "(error {0})",
     "NOT_FOUND_ERR"                     : "The file/directory could not be found.",
     "NOT_READABLE_ERR"                  : "The file/directory could not be read.",

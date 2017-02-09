@@ -794,22 +794,22 @@ define(function (require, exports, module) {
      */
     var menu = Menus.addMenu(Strings.DEBUG_MENU, DEBUG_MENU, Menus.BEFORE, Menus.AppMenuBar.HELP_MENU);
     menu.addMenuItem(DEBUG_SHOW_DEVELOPER_TOOLS, KeyboardPrefs.showDeveloperTools);
-    menu.addMenuItem(DEBUG_REFRESH_WINDOW, KeyboardPrefs.refreshWindow);
-    menu.addMenuItem(DEBUG_RELOAD_WITHOUT_USER_EXTS, KeyboardPrefs.reloadWithoutUserExts);
-    menu.addMenuItem(DEBUG_NEW_BRACKETS_WINDOW);
+    //    menu.addMenuItem(DEBUG_REFRESH_WINDOW, KeyboardPrefs.refreshWindow);
+    //    menu.addMenuItem(DEBUG_RELOAD_WITHOUT_USER_EXTS, KeyboardPrefs.reloadWithoutUserExts);
+    //    menu.addMenuItem(DEBUG_NEW_BRACKETS_WINDOW);
     menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_SWITCH_LANGUAGE);
-    menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_RUN_UNIT_TESTS);
+    //    menu.addMenuItem(DEBUG_SWITCH_LANGUAGE);
+    //    menu.addMenuDivider();
+    //    menu.addMenuItem(DEBUG_RUN_UNIT_TESTS);
     menu.addMenuItem(DEBUG_SHOW_PERF_DATA);
-    menu.addMenuItem(DEBUG_OPEN_BRACKETS_SOURCE);
+    //    menu.addMenuItem(DEBUG_OPEN_BRACKETS_SOURCE);
     menu.addMenuDivider();
-    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
-    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
-    menu.addMenuItem(DEBUG_RESTART_NODE);
+    //    menu.addMenuItem(DEBUG_ENABLE_NODE_DEBUGGER);
+    //    menu.addMenuItem(DEBUG_LOG_NODE_STATE);
+    //    menu.addMenuItem(DEBUG_RESTART_NODE);
     menu.addMenuItem(DEBUG_SHOW_ERRORS_IN_STATUS_BAR);
     menu.addMenuItem(DEBUG_OPEN_PREFERENCES_IN_SPLIT_VIEW); // this command will enable defaultPreferences and brackets preferences to be open side by side in split view.
-    menu.addMenuItem(Commands.FILE_OPEN_KEYMAP);      // this command is defined in core, but exposed only in Debug menu for now
+    menu.addMenuItem(Commands.FILE_OPEN_KEYMAP); // this command is defined in core, but exposed only in Debug menu for now
 
     // exposed for convenience, but not official API
     exports._runUnitTests = _runUnitTests;
