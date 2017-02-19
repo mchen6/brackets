@@ -36,7 +36,7 @@ define(function (require, exports, module) {
         Strings              = require("strings"),
         UpdateDialogTemplate = require("text!htmlContent/update-dialog.html"),
         UpdateListTemplate   = require("text!htmlContent/update-list.html"),
-        Mustache             = require("thirdparty/mustache/mustache");
+        Mustache             = brackets.getModule("thirdparty/mustache/mustache");
 
     // make sure the global brackets variable is loaded
     require("utils/Global");

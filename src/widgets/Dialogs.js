@@ -33,7 +33,7 @@ define(function (require, exports, module) {
         KeyEvent          = require("utils/KeyEvent"),
         Strings           = require("strings"),
         DialogTemplate    = require("text!htmlContent/dialog-template.html"),
-        Mustache          = require("thirdparty/mustache/mustache");
+        Mustache = brackets.getModule("thirdparty/mustache/mustache");
 
     /**
      * Dialog Buttons IDs

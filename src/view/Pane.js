@@ -152,7 +152,7 @@ define(function (require, exports, module) {
     "use strict";
 
     var _                   = require("thirdparty/lodash"),
-        Mustache            = require("thirdparty/mustache/mustache"),
+        Mustache            = brackets.getModule("thirdparty/mustache/mustache")
         EventDispatcher     = require("utils/EventDispatcher"),
         FileSystem          = require("filesystem/FileSystem"),
         InMemoryFile        = require("document/InMemoryFile"),
