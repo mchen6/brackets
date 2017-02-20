@@ -516,8 +516,6 @@ define(function (require, exports, module) {
     CommandManager.register(Strings.CMD_SCROLL_LINE_DOWN,   Commands.VIEW_SCROLL_LINE_DOWN,    _handleScrollLineDown);
     CommandManager.register(Strings.CMD_THEMES,             Commands.CMD_THEMES_OPEN_SETTINGS, _handleThemeSettings);
 
-    PreferencesManager.convertPreferences(module, {"fontSizeAdjustment": "user"}, true, _convertToNewViewState);
-
     prefs.definePreference("fontSize",   "string", DEFAULT_FONT_SIZE + "px", {
         description: Strings.DESCRIPTION_FONT_SIZE
     }).on("change", function () {

@@ -1259,13 +1259,6 @@ define(function (require, exports, module) {
     // Init default project path to welcome project
     PreferencesManager.stateManager.definePreference("projectPath", "string", _getWelcomeProjectPath());
 
-    PreferencesManager.convertPreferences(module, {
-        "projectPath": "user",
-        "projectTreeState_": "user",
-        "welcomeProjects": "user",
-        "projectBaseUrl_": "user"
-    }, true, _checkPreferencePrefix);
-
     exports.on("projectOpen", _reloadProjectPreferencesScope);
     exports.on("projectOpen", _saveProjectPath);
     exports.on("beforeAppClose", _unwatchProjectRoot);

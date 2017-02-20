@@ -554,8 +554,6 @@ define(function (require, exports, module) {
         return null;
     }
 
-    // PreferencesManager.convertPreferences(module, {"panelState": "user"}, true, _isPanelPreferences);
-
     EventDispatcher.makeEventDispatcher(exports);
 
     exports.makeResizable   = makeResizable;
