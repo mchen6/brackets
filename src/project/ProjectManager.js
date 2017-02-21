@@ -1020,7 +1020,8 @@ define(function (require, exports, module) {
                             // If length == 0, user canceled the dialog; length should never be > 1
                             if (files.length > 0) {
                                 // Load the new project into the folder tree
-                                _loadProject(files[0]).then(result.resolve, result.reject);
+                                // thomas@whogloo.com - make sure we pass in that we ARE updating the project here - to make sure it loads in Brackets Server
+                                _loadProject(files[0], true).then(result.resolve, result.reject);
                             } else {
                                 result.reject();
                             }
