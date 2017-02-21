@@ -34,7 +34,7 @@ define(function (require, exports, module) {
         StatusBarHTML    = require("text!widgets/StatusBar.html"),
         Strings          = require("strings"),
         WorkspaceManager = require("view/WorkspaceManager"),
-        Mustache = brackets.getModule("thirdparty/mustache/mustache");
+        Mustache         = brackets.getModule("thirdparty/mustache/mustache");
 
     var _init = false;
 
