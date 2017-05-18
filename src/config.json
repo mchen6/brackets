@@ -1,30 +1,30 @@
 {
-   "config": {
-        "app_title"                  : "nodeSpeed Brackets Development",
-        "app_name_about"             : "nodeSpeed Brackets Development",
-        "about_icon"                 : "styles/images/nodespeed_inverted_.png",
-        "update_info_url"            : "https://getupdates.brackets.io/getupdates/",
-        "how_to_use_url"             : "https://whogloo-confluence.nodespeed.io/pages/viewpage.action?pageId=1867846",
-        "support_url"                : "http://support.whogloo.com/",
-        "suggest_feature_url"        : "http://support.whogloo.com/",
-        "get_involved_url"           : "",
-        "glob_help_url"              : "http://support.whogloo.com/",
-        "release_notes_url"          : "",
-        "homepage_url"               : "http://whogloo.io",
-        "twitter_url"                : "https://twitter.com/whogloo",
-        "troubleshoot_url"           : "http://support.whogloo.com",
-        "twitter_name"               : "@whogloo",
-        "contributors_url"           : "https://api.github.com/repos/adobe/brackets/contributors?per_page={0}&page={1}",
-        "extension_listing_url"      : "",
-        "extension_registry"         : "https://s3.amazonaws.com/extend.brackets/registry.json",
-        "extension_url"              : "https://s3.amazonaws.com/extend.brackets/{0}/{0}-{1}.zip",
-        "linting.enabled_by_default" : true,
-        "build_timestamp"            : "",
-        "healthDataServerURL"        : "https://health.brackets.io/healthDataLog"
+    "config": {
+        "app_title": "nodeSpeed Development",
+        "app_name_about": "nodeSpeed Development",
+        "about_icon": "styles/images/nodespeed_inverted_.png",
+        "update_info_url": "https://getupdates.brackets.io/getupdates/",
+        "how_to_use_url": "https://whogloo-confluence.nodespeed.io/pages/viewpage.action?pageId=1867846",
+        "support_url": "http://support.whogloo.com/",
+        "suggest_feature_url": "http://support.whogloo.com/",
+        "get_involved_url": "",
+        "glob_help_url": "http://support.whogloo.com/",
+        "release_notes_url": "",
+        "homepage_url": "http://whogloo.io",
+        "twitter_url": "https://twitter.com/whogloo",
+        "troubleshoot_url": "http://support.whogloo.com",
+        "twitter_name": "@whogloo",
+        "contributors_url": "https://api.github.com/repos/adobe/brackets/contributors?per_page={0}&page={1}",
+        "extension_listing_url": "",
+        "extension_registry": "https://s3.amazonaws.com/extend.brackets/registry.json",
+        "extension_url": "https://s3.amazonaws.com/extend.brackets/{0}/{0}-{1}.zip",
+        "linting.enabled_by_default": true,
+        "build_timestamp": "",
+        "healthDataServerURL": "https://health.brackets.io/healthDataLog"
     },
     "name": "Brackets",
-    "version": "1.7.0-0",
-    "apiVersion": "1.7.0",
+    "version": "1.8.0-0",
+    "apiVersion": "1.8.0",
     "homepage": "http://brackets.io",
     "issues": {
         "url": "http://github.com/adobe/brackets/issues"
@@ -35,7 +35,13 @@
         "branch": "",
         "SHA": ""
     },
+    "dependencies": {
+        "anymatch": "1.3.0",
+        "chokidar": "1.6.0",
+        "lodash": "4.15.0"
+    },
     "devDependencies": {
+        "glob": "7.0.6",
         "grunt": "0.4.5",
         "jasmine-node": "1.11.0",
         "grunt-jasmine-node": "0.1.0",
