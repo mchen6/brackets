@@ -28,6 +28,7 @@ Thumbs.db
 
 # unit test working directory
 /test/results
+/test/temp
 
 # Netbeans
 /nbproject
@@ -39,3 +40,5 @@ Thumbs.db
 /src/extensibility/node/node_modules/request/tests/
 /src/LiveDevelopment/MultiBrowserImpl/transports/node/NodeSocketTransportDomain.js
 /src/LiveDevelopment/MultiBrowserImpl/transports/NodeSocketTransport.js
+
+.grunt/*

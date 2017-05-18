@@ -21,9 +21,6 @@
  *
  */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window */
-
 /**
  * ProjectManager glues together the project model and file tree view and integrates as needed with other parts
  * of Brackets. It is responsible for creating and updating the project tree when projects are opened
@@ -741,7 +738,7 @@ define(function (require, exports, module) {
         FileSystem.on("change", _fileSystemChange);
         FileSystem.on("rename", _fileSystemRename);
 
-        FileSystem.watch(FileSystem.getDirectoryForPath(rootPath), ProjectModel._shouldShowName, function (err) {
+        FileSystem.watch(FileSystem.getDirectoryForPath(rootPath), ProjectModel._shouldShowName, ProjectModel.defaultIgnoreGlobs, function (err) {
             if (err === FileSystemError.TOO_MANY_ENTRIES) {
                 if (!_projectWarnedForTooManyFiles) {
                     _showErrorDialog(ERR_TYPE_MAX_FILES);
@@ -1023,7 +1020,8 @@ define(function (require, exports, module) {
                             // If length == 0, user canceled the dialog; length should never be > 1
                             if (files.length > 0) {
                                 // Load the new project into the folder tree
-                                _loadProject(files[0]).then(result.resolve, result.reject);
+                                // thomas@whogloo.com - make sure we pass in that we ARE updating the project here - to make sure it loads in Brackets Server
+                                _loadProject(files[0], true).then(result.resolve, result.reject);
                             } else {
                                 result.reject();
                             }
@@ -1166,7 +1164,7 @@ define(function (require, exports, module) {
      */
     function _setFileTreeSelectionWidth(width) {
         model.setSelectionWidth(width);
-        _renderTree();
+        _renderTreeSync();
     }
 
     // Initialize variables and listeners that depend on the HTML DOM
@@ -1261,13 +1259,6 @@ define(function (require, exports, module) {
 
     // Init default project path to welcome project
     PreferencesManager.stateManager.definePreference("projectPath", "string", _getWelcomeProjectPath());
-
-    PreferencesManager.convertPreferences(module, {
-        "projectPath": "user",
-        "projectTreeState_": "user",
-        "welcomeProjects": "user",
-        "projectBaseUrl_": "user"
-    }, true, _checkPreferencePrefix);
 
     exports.on("projectOpen", _reloadProjectPreferencesScope);
     exports.on("projectOpen", _saveProjectPath);

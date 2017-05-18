@@ -21,8 +21,7 @@
  *
  */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true,  regexp: true, indent: 4, maxerr: 50 */
-/*global define, brackets, $, window */
+/*jslint regexp: true */
 
 define(function (require, exports, module) {
     "use strict";
@@ -819,11 +818,6 @@ define(function (require, exports, module) {
     // Insert menu at specific pos since this may load before OR after code folding extension
     CommandManager.register(Strings.CMD_ENABLE_QUICK_VIEW, CMD_ENABLE_QUICK_VIEW, toggleEnableQuickView);
     Menus.getMenu(Menus.AppMenuBar.VIEW_MENU).addMenuItem(CMD_ENABLE_QUICK_VIEW, null, Menus.AFTER, Commands.VIEW_TOGGLE_INSPECTION);
-
-    // Convert old preferences
-    PreferencesManager.convertPreferences(module, {
-        "enabled": "user quickview.enabled"
-    });
 
     // Setup initial UI state
     setEnabled(prefs.get("enabled"), true);

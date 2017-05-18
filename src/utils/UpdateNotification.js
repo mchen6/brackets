@@ -21,9 +21,6 @@
  *
  */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets, window */
-
 /**
  *  Utilities functions for displaying update notifications
  *
@@ -39,7 +36,7 @@ define(function (require, exports, module) {
         Strings              = require("strings"),
         UpdateDialogTemplate = require("text!htmlContent/update-dialog.html"),
         UpdateListTemplate   = require("text!htmlContent/update-list.html"),
-        Mustache             = require("thirdparty/mustache/mustache");
+        Mustache             = brackets.getModule("thirdparty/mustache/mustache");
 
     // make sure the global brackets variable is loaded
     require("utils/Global");
@@ -63,12 +60,6 @@ define(function (require, exports, module) {
     PreferencesManager.stateManager.definePreference("lastExtensionRegistryCheckTime", "number", 0);
     // Data about available updates in the registry
     PreferencesManager.stateManager.definePreference("extensionUpdateInfo", "Array", []);
-
-    PreferencesManager.convertPreferences(module, {
-        "lastNotifiedBuildNumber": "user",
-        "lastInfoURLFetchTime": "user",
-        "updateInfo": "user"
-    }, true);
 
     // URL to load version info from. By default this is loaded no more than once a day. If
     // you force an update check it is always loaded.

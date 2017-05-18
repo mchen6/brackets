@@ -21,9 +21,6 @@
  *
  */
 
-/*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $ */
-
 /*
  * UI for the Find/Replace and Find in Files modal bar.
  */
@@ -614,7 +611,6 @@ define(function (require, exports, module) {
 
     PreferencesManager.stateManager.definePreference("caseSensitive", "boolean", false);
     PreferencesManager.stateManager.definePreference("regexp", "boolean", false);
-    PreferencesManager.convertPreferences(module, {"caseSensitive": "user", "regexp": "user"}, true);
 
     exports.FindBar = FindBar;
 });
