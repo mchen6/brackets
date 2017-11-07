@@ -40,7 +40,7 @@ define(function (require, exports, module) {
     AppInit.appReady(function () {
         params.parse();
         // Check whether the notification dialog should be shown. It will be shown one time. Does not check in testing environment.
-        if (!params.get("testEnvironment")) {
+        /*if (!params.get("testEnvironment")) { //brackets窗口去掉进入时的nodeSpeed Development Health Report hint
             var alreadyShown = PreferencesManager.getViewState("healthDataNotificationShown");
             var prefs = PreferencesManager.getExtensionPrefs("healthData");
             if (!alreadyShown && prefs.get("healthDataTracking")) {
@@ -49,7 +49,7 @@ define(function (require, exports, module) {
                         PreferencesManager.setViewState("healthDataNotificationShown", true);
                     });
             }
-        }
+        }*/
     });
 
 
