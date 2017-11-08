@@ -51,8 +51,8 @@ define(function (require, exports, module) {
         //        menu.addMenuItem(Commands.FILE_LIVE_FILE_PREVIEW);
         //        menu.addMenuItem(Commands.TOGGLE_LIVE_PREVIEW_MB_MODE);
         //        menu.addMenuItem(Commands.FILE_PROJECT_SETTINGS);
-        menu.addMenuDivider();
-        menu.addMenuItem(Commands.FILE_EXTENSION_MANAGER);
+        /*menu.addMenuDivider();  //隐藏brackets顶部菜单栏的File菜单的Extension Manager子菜单
+        menu.addMenuItem(Commands.FILE_EXTENSION_MANAGER);*/
 
         // suppress redundant quit menu item on mac
         if (brackets.platform !== "mac" || !brackets.nativeMenus) {
@@ -161,7 +161,7 @@ define(function (require, exports, module) {
         /*
          * Help menu
          */
-        menu = Menus.addMenu(Strings.HELP_MENU, Menus.AppMenuBar.HELP_MENU);
+        /*menu = Menus.addMenu(Strings.HELP_MENU, Menus.AppMenuBar.HELP_MENU); //隐藏brackets顶部菜单栏的Help菜单
 
         //menu.addMenuItem(Commands.HELP_CHECK_FOR_UPDATE);
         //menu.addMenuDivider();
@@ -180,12 +180,12 @@ define(function (require, exports, module) {
         }
         if (brackets.config.get_involved_url) {
             menu.addMenuItem(Commands.HELP_GET_INVOLVED);
-        }
+        }*/
 
         //menu.addMenuDivider();
         //menu.addMenuItem(Commands.HELP_SHOW_EXT_FOLDER);
 
-        var hasAboutItem = (brackets.platform !== "mac" || !brackets.nativeMenus);
+        /*var hasAboutItem = (brackets.platform !== "mac" || !brackets.nativeMenus);
 
         // Add final divider only if we have a homepage URL or twitter URL or about item
         if (hasAboutItem || brackets.config.homepage_url || brackets.config.twitter_url) {
@@ -202,7 +202,7 @@ define(function (require, exports, module) {
         // supress redundant about menu item in mac shell
         if (hasAboutItem) {
             menu.addMenuItem(Commands.HELP_ABOUT);
-        }
+        }*/
 
 
         /*

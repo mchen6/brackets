@@ -86,7 +86,7 @@ define(function (require, exports, module) {
      * @private
      * @type {boolean}
      */
-    var _enabled = false;
+    var _enabled = true; //原值：false，目的是为了进入brackets后选择js文件不提示JSLint Problems
 
     /**
      * When collapsed, the errors panel is closed but the status bar icon is kept up to date.
@@ -545,9 +545,9 @@ define(function (require, exports, module) {
         }
 
         // Take no action when there is no change.
-        if (enabled === _enabled) {
+        /*if (enabled === _enabled) { //若_enabled为true时打开注释，则首次使用"View -> Lint Files On Save时会失效"
             return;
-        }
+        }*/
 
         _enabled = enabled;
 

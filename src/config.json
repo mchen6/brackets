@@ -18,7 +18,7 @@
         "extension_listing_url": "",
         "extension_registry": "https://s3.amazonaws.com/extend.brackets/registry.json",
         "extension_url": "https://s3.amazonaws.com/extend.brackets/{0}/{0}-{1}.zip",
-        "linting.enabled_by_default": true,
+        "linting.enabled_by_default": false,
         "build_timestamp": "",
         "healthDataServerURL": "https://healthdev.brackets.io/healthDataLog"
     },

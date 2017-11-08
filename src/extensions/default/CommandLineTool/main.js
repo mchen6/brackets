@@ -105,8 +105,8 @@ define(function (require, exports, module) {
     }
 
     // Append this menu only for Mac.
-    if (brackets.platform === "mac") {
-        addCommand();
-    }
+    /*if (brackets.platform === "mac") {
+        addCommand(); //隐藏brackets顶部菜单栏的File菜单的Install Command Line Shortcut子菜单
+    }*/
 
 });
