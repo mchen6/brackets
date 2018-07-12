@@ -18,4 +18,4 @@
 	url = https://github.com/peterflynn/JSLint.git
 [submodule "src/thirdparty/CodeMirror"]
 	path = src/thirdparty/CodeMirror
-	url = https://mchen6@bitbucket.org/mchen6/codemirror2.git
+	url = https://bitbucket.org/mchen6/codemirror2.git
